@@ -3,4 +3,4 @@ layout: page
 title: About
 permalink: /about/
 ---
-Will be updated soon!
+My personal website!
