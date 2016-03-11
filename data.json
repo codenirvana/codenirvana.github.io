@@ -1,0 +1,59 @@
+{
+   "I-am":{
+      "Name":"Udit Vasu",
+      "LinkedIn":"/uditvasu",
+      "IRC":"#codenirvana",
+      "Twitter":"@uditdistro",
+      "Blog":"/blog",
+      "E-Mail":"admin@codenirvana.in"
+   },
+   "About":{
+      "Country":"India",
+      "City":"Jaipur",
+      "Age":"20"
+   },
+   "Skills":{
+      "Python":"50%",
+      "C++":"60%",
+      "C":"75%",
+      "Java":"30%",
+      "HTML":"95%",
+      "CSS":"90%",
+      "JavaScript":"60%",
+      "PHP":"70%",
+      "Others":"MySQL, GIT, BASH"
+   },
+   "Skills .CSS":{
+      "SASS":"50%",
+      "Bootstrap":"55%",
+      "Materialize":"80%"
+   },
+   "Skills .JavaScript":{
+      "jQuery":"60%",
+      "AJAX":"90%"
+   },
+   "Tools":{
+       "Editor":"Atom",
+       "Operating-System":"OSX, Fedora",
+       "Designing":"Illustrator, Photoshop"
+   },
+   "Work-experience":{
+      "GitHub":"codenirvana",
+      "Website":"codenirvana.net"
+   },
+   "Work-experience .first":{
+      "Company-name":"Tech Distro",
+      "My-position":"Graphic Designer",
+      "Working-process":"2 Years"
+   },
+   "Work-experience .second":{
+      "Company-name":"DuckDuckGo",
+      "My-position":"Community Leader",
+      "Working-process":"5 Months"
+   },
+   "Work-experience .third":{
+      "Company-name":"Microsoft",
+      "My-position":"Microsoft Student Partner",
+      "Working-process":"5 Months"
+   }
+}
