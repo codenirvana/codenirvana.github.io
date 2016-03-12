@@ -2,7 +2,7 @@ $(function() {
 
     var links = {
             "GitHub" : "https://github.com/codenirvana",
-            "Blog" : "http://uditvasu.net/blog",
+            "Blog" : "https://uditvasu.net/blog",
             "LinkedIn" : "https://www.linkedin.com/in/uditvasu",
             "E-Mail" : "mailto:admin@codenirvana.in",
             "Twitter" : "http://twitter.com/uditdistro",
