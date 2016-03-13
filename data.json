@@ -14,7 +14,16 @@
          "Operating-System",
          "Designing",
          "Company-name"
-      ]
+     ],
+     "newSelection":[
+         "Work-experience .second",
+         "Work-experience .third"
+     ],
+     "newLine":[
+         "Python",
+         "SASS",
+         "Bootstrap"
+     ]
    },
    "code":{
       "I-am":{

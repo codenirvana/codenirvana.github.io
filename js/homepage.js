@@ -13,13 +13,24 @@ $(function() {
     $.getJSON("/data.json", function(data) {
             var codeItems = [],
                 valueContent = data['meta']['quotes'],
-                links = data['meta']['links'];
+                links = data['meta']['links'],
+                newSelection = data['meta']['newSelection'],
+                newLine = data['meta']['newLine'];
             $.each(data['code'], function(key, val) {
-                var codeItem = '<code><span class="code-selection">' + key + '</span><span class="code-content">';
+                var codeItem;
+                if (jQuery.inArray(key, newSelection) != -1) {
+                    codeItem = "<code class='gutter-new'>";
+                } else{
+                    codeItem = "<code>";
+                }
+                codeItem += '<span class="code-selection">' + key + '</span><span class="code-content">';
                 $.each(val, function(key, value) {
                     codeItem += '<span class="code-line ';
                     if (jQuery.inArray(key, valueContent) != -1) {
-                        codeItem += 'value-content';
+                        codeItem += 'value-content ';
+                    }
+                    if(jQuery.inArray(key, newLine) != -1){
+                        codeItem += 'gutter-new';
                     }
                     codeItem += '"><span class="code-attr">' + key + '</span>';
                     if (links[key]) {
