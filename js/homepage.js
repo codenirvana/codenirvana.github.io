@@ -11,12 +11,12 @@ $(function() {
     }
 
     var links = {
-            "GitHub" : "https://github.com/codenirvana",
-            "Blog" : "https://uditvasu.net/blog",
-            "LinkedIn" : "https://www.linkedin.com/in/uditvasu",
-            "E-Mail" : "mailto:admin@codenirvana.in",
-            "Twitter" : "http://twitter.com/uditdistro",
-            "Website" : "http://www.codenirvana.net"
+        "GitHub": "https://github.com/codenirvana",
+        "Blog": "https://uditvasu.net/blog",
+        "LinkedIn": "https://www.linkedin.com/in/uditvasu",
+        "E-Mail": "mailto:admin@codenirvana.in",
+        "Twitter": "http://twitter.com/uditdistro",
+        "Website": "http://www.codenirvana.net"
 
     };
 
@@ -28,19 +28,18 @@ $(function() {
                 var codeItem = '<code><span class="code-selection">' + key + '</span><span class="code-content">';
                 $.each(val, function(key, value) {
                     codeItem += '<span class="code-line ';
-                    if(jQuery.inArray(key, valueContent) != -1){
+                    if (jQuery.inArray(key, valueContent) != -1) {
                         codeItem += 'value-content';
                     }
                     codeItem += '"><span class="code-attr">' + key + '</span>';
-                    if(links[key]){
-                        codeItem += '<span class="code-value"><a href="'+links[key]+'" target="_blank">' + value + '</a></span>';
-                    } else{
-                        if(value.indexOf("%") != -1){
-                            codeItem += '<span class="code-value">' + value.slice(0,-1)+ '<span class="value-number-percent">%</span></span>';
-                        } else{
+                    if (links[key]) {
+                        codeItem += '<span class="code-value"><a href="' + links[key] + '" target="_blank">' + value + '</a></span>';
+                    } else {
+                        if (value.indexOf("%") != -1) {
+                            codeItem += '<span class="code-value">' + value.slice(0, -1) + '<span class="value-number-percent">%</span></span>';
+                        } else {
                             codeItem += '<span class="code-value">' + value + '</span>';
                         }
-
                     }
                     codeItem += '</span>';
                 });

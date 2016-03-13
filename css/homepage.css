@@ -173,20 +173,20 @@ pre .comment-item .comment {
     white-space: nowrap;
 }
 @media screen and (max-width: 500px) {
-    body{
+    body {
         font-size: 13px;
     }
-    aside{
+    aside {
         width: 50px;
         font-size: 11px;
     }
-    pre{
+    pre {
         width: calc(100% - 50px);
     }
-    aside span{
+    aside span {
         padding-left: 5px;
     }
-    code .arrow{
+    code .arrow {
         top: 9px;
     }
 }
