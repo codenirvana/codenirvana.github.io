@@ -24,6 +24,9 @@ body {
 ::-webkit-scrollbar {
     display: none;
 }
+.clearfix{
+    clear: both;
+}
 main, aside, aside span, pre, code, .code-content, .code-content .code-line, pre .comment-item .comment {
     float: left;
     width: 100%;
