@@ -207,4 +207,12 @@ pre .comment-item .comment {
     code .arrow {
         top: 9px;
     }
+    pre code.gutter-new:before{
+        left: -60px;
+        width: 1px;
+    }
+    .code-content .code-line.gutter-new:before{
+        left: -100px;
+        width: 1px;
+    }
 }
