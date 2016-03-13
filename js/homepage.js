@@ -10,21 +10,11 @@ $(function() {
         }
     }
 
-    var links = {
-        "GitHub": "https://github.com/codenirvana",
-        "Blog": "https://uditvasu.net/blog",
-        "LinkedIn": "https://www.linkedin.com/in/uditvasu",
-        "E-Mail": "mailto:admin@codenirvana.in",
-        "Twitter": "http://twitter.com/uditdistro",
-        "Website": "http://www.codenirvana.net"
-
-    };
-
-    var valueContent = ["Others", "Operating-System", "Designing", "Company-name"];
-
     $.getJSON("/data.json", function(data) {
-            var codeItems = [];
-            $.each(data, function(key, val) {
+            var codeItems = [],
+                valueContent = data['meta']['quotes'],
+                links = data['meta']['links'];
+            $.each(data['code'], function(key, val) {
                 var codeItem = '<code><span class="code-selection">' + key + '</span><span class="code-content">';
                 $.each(val, function(key, value) {
                     codeItem += '<span class="code-line ';
