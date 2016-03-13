@@ -1,10 +1,12 @@
 $(function() {
 
+    var lineCount;
+
     function lineCountWrite() {
-        $(".line-count").html("");
-        var lineCount = $(".code").height() / 25;
+        $("aside").html("");
+        lineCount = $("main").height() / 25;
         for (var i = 1; i <= lineCount; i++) {
-            $(".line-count").append("<span>" + i + "</span>")
+            $("aside").append("<span>" + i + "</span>")
         }
     }
 
@@ -23,63 +25,62 @@ $(function() {
     $.getJSON("/data.json", function(data) {
             var codeItems = [];
             $.each(data, function(key, val) {
-                var codeItem = '<div class="code-item">';
+                var codeItem = '<code>';
                 codeItem += '<span class="code-selection">' + key + '</span>';
-                codeItem += '<span class="code-item-content">';
+                codeItem += '<span class="code-content">';
                 $.each(val, function(key, value) {
-                    codeItem += '<span class="code-item-line ';
+                    codeItem += '<span class="code-line ';
                     if(jQuery.inArray(key, valueContent) != -1){
                         codeItem += 'value-content';
                     }
                     codeItem += '">';
-                    codeItem += '<span class="code-item-attr">' + key + '</span>';
+                    codeItem += '<span class="code-attr">' + key + '</span>';
                     if(links[key]){
-                        codeItem += '<span class="code-item-value"><a href="'+links[key]+'" target="_blank">' + value + '</a></span>';
+                        codeItem += '<span class="code-value"><a href="'+links[key]+'" target="_blank">' + value + '</a></span>';
                     } else{
                         if(value.indexOf("%") != -1){
-                            codeItem += '<span class="code-item-value">' + value.slice(0,-1)+ '<span class="value-number-percent">%</span></span>';
+                            codeItem += '<span class="code-value">' + value.slice(0,-1)+ '<span class="value-number-percent">%</span></span>';
                         } else{
-                            codeItem += '<span class="code-item-value">' + value + '</span>';
+                            codeItem += '<span class="code-value">' + value + '</span>';
                         }
 
                     }
                     codeItem += '</span>';
                 });
-                codeItem += '</span></div>';
+                codeItem += '</span></code>';
                 codeItems.push(codeItem);
             });
-            codeItems.push('<div class="code-item description-item"><div class="description-item-line">Thank you for reading</div></div>');
-            $('.code-items').html(codeItems);
+            codeItems.push('<code class="comment-item"><div class="comment">Thank you for reading</div></code>');
+            $('pre').html(codeItems);
 
         })
         .done(function() {
             lineCountWrite();
             $(window).hover(function(e) {
-                var lineCount = $(".code").height() / 25;
                 var pY = e.pageY;
                 for (var c = 1; c <= lineCount; c++) {
-                    if (pY > $(".line-count span:nth-child(" + c + ")").offset().top && pY < $(".line-count span:nth-child(" + c + ")").offset().top + 25) {
-                        $(".line-count span:nth-child(" + c + ")").css({
+                    if (pY > $("aside span:nth-child(" + c + ")").offset().top && pY < $("aside span:nth-child(" + c + ")").offset().top + 25) {
+                        $("aside span:nth-child(" + c + ")").css({
                             color: "#55b5db"
                         })
                     }
                 }
             }, function() {
-                $(".line-count span").css({
+                $("aside span").css({
                     color: "#404b53"
                 })
             });
-            $(".code-items .code-item").append('<span class="directional-arrow"></span>');
-            $(".code-items .code-item .directional-arrow").click(function() {
+            $("code").append('<span class="arrow"></span>');
+            $("code .arrow").click(function() {
                 if ($(this).parent().hasClass('close')) {
                     $(this).parent().removeClass('close');
                     $(this).siblings('.code-selection').removeClass('collapsed');
-                    $(".code-item-content", $(this).parent()).show();
+                    $(".code-content", $(this).parent()).show();
                     lineCountWrite();
                 } else {
                     $(this).parent().addClass('close');
                     $(this).siblings('.code-selection').addClass('collapsed');
-                    $(".code-item-content", $(this).parent()).hide();
+                    $(".code-content", $(this).parent()).hide();
                     lineCountWrite();
                 }
             });
