@@ -1,5 +1,13 @@
 $(function() {
 
+    function lineCountWrite() {
+        $(".line-count").html("");
+        var lineCount = $(".code").height() / 25;
+        for (var i = 1; i <= lineCount; i++) {
+            $(".line-count").append("<span>" + i + "</span>")
+        }
+    }
+
     var links = {
             "GitHub" : "https://github.com/codenirvana",
             "Blog" : "https://uditvasu.net/blog",
@@ -45,14 +53,9 @@ $(function() {
 
         })
         .done(function() {
-            var w = $(window).width();
-            var h = $(window).height();
-            var lineCount = $(".code").height() / 25;
-            for (var i = 1; i <= lineCount; i++) {
-                $(".line-count").append("<span>" + i + "</span>")
-            }
+            lineCountWrite();
             $(window).hover(function(e) {
-                lineCount = $(".code").height() / 25;
+                var lineCount = $(".code").height() / 25;
                 var pY = e.pageY;
                 for (var c = 1; c <= lineCount; c++) {
                     if (pY > $(".line-count span:nth-child(" + c + ")").offset().top && pY < $(".line-count span:nth-child(" + c + ")").offset().top + 25) {
@@ -66,26 +69,18 @@ $(function() {
                     color: "#404b53"
                 })
             });
-            $(".code-items .code-item").append('<span class="directional-arrow"></span>')
+            $(".code-items .code-item").append('<span class="directional-arrow"></span>');
             $(".code-items .code-item .directional-arrow").click(function() {
                 if ($(this).parent().hasClass('close')) {
-                    $(this).parent().removeClass('close')
+                    $(this).parent().removeClass('close');
                     $(this).siblings('.code-selection').removeClass('collapsed');
                     $(".code-item-content", $(this).parent()).show();
-                    $(".line-count").html("");
-                    var lineCount = $(".code").height() / 25;
-                    for (var i = 1; i <= lineCount; i++) {
-                        $(".line-count").append("<span>" + i + "</span>")
-                    }
+                    lineCountWrite();
                 } else {
                     $(this).parent().addClass('close');
                     $(this).siblings('.code-selection').addClass('collapsed');
                     $(".code-item-content", $(this).parent()).hide();
-                    $(".line-count").html("");
-                    var lineCount = $(".code").height() / 25;
-                    for (var i = 1; i <= lineCount; i++) {
-                        $(".line-count").append("<span>" + i + "</span>")
-                    }
+                    lineCountWrite();
                 }
             });
         })
