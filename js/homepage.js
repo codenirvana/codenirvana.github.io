@@ -25,16 +25,13 @@ $(function() {
     $.getJSON("/data.json", function(data) {
             var codeItems = [];
             $.each(data, function(key, val) {
-                var codeItem = '<code>';
-                codeItem += '<span class="code-selection">' + key + '</span>';
-                codeItem += '<span class="code-content">';
+                var codeItem = '<code><span class="code-selection">' + key + '</span><span class="code-content">';
                 $.each(val, function(key, value) {
                     codeItem += '<span class="code-line ';
                     if(jQuery.inArray(key, valueContent) != -1){
                         codeItem += 'value-content';
                     }
-                    codeItem += '">';
-                    codeItem += '<span class="code-attr">' + key + '</span>';
+                    codeItem += '"><span class="code-attr">' + key + '</span>';
                     if(links[key]){
                         codeItem += '<span class="code-value"><a href="'+links[key]+'" target="_blank">' + value + '</a></span>';
                     } else{
@@ -62,27 +59,20 @@ $(function() {
                     if (pY > $("aside span:nth-child(" + c + ")").offset().top && pY < $("aside span:nth-child(" + c + ")").offset().top + 25) {
                         $("aside span:nth-child(" + c + ")").css({
                             color: "#55b5db"
-                        })
+                        });
                     }
                 }
             }, function() {
                 $("aside span").css({
                     color: "#404b53"
-                })
+                });
             });
             $("code").append('<span class="arrow"></span>');
             $("code .arrow").click(function() {
-                if ($(this).parent().hasClass('close')) {
-                    $(this).parent().removeClass('close');
-                    $(this).siblings('.code-selection').removeClass('collapsed');
-                    $(".code-content", $(this).parent()).show();
-                    lineCountWrite();
-                } else {
-                    $(this).parent().addClass('close');
-                    $(this).siblings('.code-selection').addClass('collapsed');
-                    $(".code-content", $(this).parent()).hide();
-                    lineCountWrite();
-                }
+                $(this).parent().toggleClass('close');
+                $(this).siblings('.code-selection').toggleClass('collapsed');
+                $(".code-content", $(this).parent()).toggle();
+                lineCountWrite();
             });
         })
         .fail(function() {

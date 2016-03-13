@@ -35,7 +35,7 @@ aside {
 aside span {
     padding-left: 10px;
     color: #404b53;
-    background: #060708;
+    background: #0e1112;
     cursor: default;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -74,12 +74,12 @@ code .arrow:before, code .arrow:after {
 code .arrow:before {
     left: 0;
     border-width: .35em 0 .35em .35em;
-    border-color: transparent transparent transparent #060708;
+    border-color: transparent transparent transparent #0e1112;
 }
 code .arrow:after {
     right: 0;
     border-width: .35em 0 .35em .35em;
-    border-color: #060708 transparent;
+    border-color: #0e1112 transparent;
 }
 code .arrow:hover {
     background: #55b5db;
