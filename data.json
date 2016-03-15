@@ -53,7 +53,8 @@
       "Skills .CSS":{
          "SASS":"50%",
          "Bootstrap":"55%",
-         "Materialize":"80%"
+         "Materialize":"80%",
+         "Media-Queries":"98%"
       },
       "Skills .JavaScript":{
          "jQuery":"60%",
