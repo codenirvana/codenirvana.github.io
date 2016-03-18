@@ -47,17 +47,17 @@
          "HTML":"95%",
          "CSS":"90%",
          "JavaScript":"60%",
-         "PHP":"70%",
+         "PHP":"65%",
          "Others":"MySQL, GIT, BASH"
       },
       "Skills .CSS":{
          "SASS":"50%",
-         "Bootstrap":"55%",
+         "Bootstrap":"60%",
          "Materialize":"80%",
          "Media-Queries":"98%"
       },
       "Skills .JavaScript":{
-         "jQuery":"60%",
+         "jQuery":"65%",
          "AJAX":"90%"
       },
       "Tools":{
