@@ -23,17 +23,31 @@
     <main>
         <aside></aside>
         <pre>
-            <code>
+            <code itemscope itemtype="http://schema.org/Person">
                 <span class="code-selection">I-am</span>
                 <span class="code-content">
                     <span class="code-line value-content ">
                         <span class="code-attr">Name</span>
-                        <span class="code-value">Udit Vasu</span>
+                        <span itemprop="name" class="code-value">Udit Vasu</span>
                     </span>
-                    <span class="code-line ">
-                        <span class="code-attr">LinkedIn</span>
-                        <span class="code-value">
-                            <a href="https://www.linkedin.com/in/uditvasu" target="_blank">/uditvasu</a>
+                    <span itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                        <span class="code-line ">
+                            <span itemprop="name"  class="code-attr">LinkedIn</span>
+                            <span class="code-value">
+                                <a itemprop="url" href="https://www.linkedin.com/in/uditvasu" target="_blank">/uditvasu</a>
+                            </span>
+                        </span>
+                        <span class="code-line ">
+                            <span itemprop="name" class="code-attr">Twitter</span>
+                            <span class="code-value">
+                                <a itemprop="url" href="http://twitter.com/uditdistro" target="_blank">@uditdistro</a>
+                            </span>
+                        </span>
+                        <span class="code-line ">
+                            <span itemprop="name" class="code-attr">Blog</span>
+                            <span class="code-value">
+                                <a itemprop="url" href="https://uditvasu.net/blog" target="_blank">/blog</a>
+                            </span>
                         </span>
                     </span>
                     <span class="code-line ">
@@ -41,36 +55,27 @@
                         <span class="code-value">#codenirvana</span>
                     </span>
                     <span class="code-line ">
-                        <span class="code-attr">Twitter</span>
-                        <span class="code-value">
-                            <a href="http://twitter.com/uditdistro" target="_blank">@uditdistro</a>
-                        </span>
-                    </span>
-                    <span class="code-line ">
-                        <span class="code-attr">Blog</span>
-                        <span class="code-value">
-                            <a href="https://uditvasu.net/blog" target="_blank">/blog</a>
-                        </span>
-                    </span>
-                    <span class="code-line ">
                         <span class="code-attr">E-Mail</span>
                         <span class="code-value">
-                            <a href="mailto:admin@codenirvana.in" target="_blank">admin@codenirvana.in</a>
+                            <a itemprop="email" href="mailto:admin@codenirvana.in" target="_blank">admin@codenirvana.in</a>
                         </span>
                     </span>
+                    <link itemprop="sameAs" href="https://plus.google.com/+CodeNirvana" />
+                    <link itemprop="sameAs" href="https://www.linkedin.com/in/uditvasu" />
+                    <link itemprop="sameAs" href="http://twitter.com/uditdistro" />
                 </span>
                 <span class="arrow"></span>
             </code>
             <code>
                 <span class="code-selection">About</span>
-                <span class="code-content">
+                <span itemscope itemtype="http://schema.org/PostalAddress" itemprop="address" class="code-content">
                     <span class="code-line ">
                         <span class="code-attr">Country</span>
-                        <span class="code-value">India</span>
+                        <span itemprop="addressCountry" class="code-value">India</span>
                     </span>
                     <span class="code-line ">
                         <span class="code-attr">City</span>
-                        <span class="code-value">Jaipur</span>
+                        <span itemprop="addressLocality" class="code-value">Jaipur</span>
                     </span>
                     <span class="code-line ">
                         <span class="code-attr">Age</span>
@@ -205,17 +210,17 @@
             </code>
             <code>
                 <span class="code-selection">Work-experience</span>
-                <span class="code-content">
+                <span itemscope itemtype="http://www.schema.org/SiteNavigationElement" class="code-content">
                     <span class="code-line ">
-                        <span class="code-attr">GitHub</span>
+                        <span itemprop="name" class="code-attr">GitHub</span>
                         <span class="code-value">
-                            <a href="https://github.com/codenirvana" target="_blank">codenirvana</a>
+                            <a itemprop="url" href="https://github.com/codenirvana" target="_blank">codenirvana</a>
                         </span>
                     </span>
                     <span class="code-line ">
-                        <span class="code-attr">Website</span>
+                        <span itemprop="name" class="code-attr">Website</span>
                         <span class="code-value">
-                            <a href="http://www.codenirvana.net" target="_blank">codenirvana.net</a>
+                            <a itemprop="url" href="http://www.codenirvana.net" target="_blank">codenirvana.net</a>
                         </span>
                     </span>
                 </span>
@@ -223,54 +228,60 @@
             </code>
             <code>
                 <span class="code-selection">Work-experience .first</span>
-                <span class="code-content">
+                <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization" class="code-content">
                     <span class="code-line value-content ">
                         <span class="code-attr">Company-name</span>
-                        <span class="code-value">Tech Distro</span>
+                        <span itemprop="name" class="code-value">Tech Distro</span>
                     </span>
-                    <span class="code-line ">
-                        <span class="code-attr">My-position</span>
-                        <span class="code-value">Graphic Designer</span>
-                    </span>
-                    <span class="code-line ">
-                        <span class="code-attr">Working-process</span>
-                        <span class="code-value">2 Years</span>
+                    <span itemscope itemtype="http://schema.org/OrganizationRole">
+                        <span class="code-line ">
+                            <span class="code-attr">My-position</span>
+                            <span itemprop="roleName" class="code-value">Graphic Designer</span>
+                        </span>
+                        <span class="code-line ">
+                            <span class="code-attr">Working-process</span>
+                            <span itemprop="startDate" class="code-value">March 2014</span>
+                        </span>
                     </span>
                 </span>
                 <span class="arrow"></span>
             </code>
             <code class="gutter-new">
                 <span class="code-selection">Work-experience .second</span>
-                <span class="code-content">
+                <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization" class="code-content">
                     <span class="code-line value-content ">
                         <span class="code-attr">Company-name</span>
-                        <span class="code-value">DuckDuckGo</span>
+                        <span itemprop="name" class="code-value">DuckDuckGo</span>
                     </span>
-                    <span class="code-line ">
-                        <span class="code-attr">My-position</span>
-                        <span class="code-value">Community Leader</span>
-                    </span>
-                    <span class="code-line ">
-                        <span class="code-attr">Working-process</span>
-                        <span class="code-value">5 Months</span>
+                    <span itemscope itemtype="http://schema.org/OrganizationRole">
+                        <span  class="code-line ">
+                            <span class="code-attr">My-position</span>
+                            <span itemprop="roleName" class="code-value">Community Leader</span>
+                        </span>
+                        <span class="code-line ">
+                            <span class="code-attr">Working-process</span>
+                            <span itemprop="startDate" class="code-value">November 2015</span>
+                        </span>
                     </span>
                 </span>
                 <span class="arrow"></span>
             </code>
             <code class="gutter-new">
                 <span class="code-selection">Work-experience .third</span>
-                <span class="code-content">
+                <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization" class="code-content">
                     <span class="code-line value-content ">
                         <span class="code-attr">Company-name</span>
-                        <span class="code-value">Microsoft</span>
+                        <span itemprop="name" class="code-value">Microsoft</span>
                     </span>
-                    <span class="code-line ">
-                        <span class="code-attr">My-position</span>
-                        <span class="code-value">Student Partner</span>
-                    </span>
-                    <span class="code-line ">
-                        <span class="code-attr">Working-process</span>
-                        <span class="code-value">5 Months</span>
+                    <span itemscope itemtype="http://schema.org/OrganizationRole">
+                        <span  class="code-line ">
+                            <span class="code-attr">My-position</span>
+                            <span itemprop="roleName" class="code-value">Student Partner</span>
+                        </span>
+                        <span class="code-line ">
+                            <span class="code-attr">Working-process</span>
+                            <span itemprop="startDate" class="code-value">November 2015</span>
+                        </span>
                     </span>
                 </span>
                 <span class="arrow"></span>
