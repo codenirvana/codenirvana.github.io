@@ -11,3 +11,6 @@ github_username:  codenirvana
 
 # Build settings
 markdown: kramdown
+
+sass:
+    style: compressed
