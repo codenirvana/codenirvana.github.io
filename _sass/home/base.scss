@@ -76,6 +76,12 @@ main {
         left: -($count-width + $code-padding-left);
         top: 5px;
     }
+    h1, h2, h3{
+        font-size: inherit;
+        font-weight: inherit;
+        display: inline;
+        margin: 0;
+    }
     @import "arrow", "code-selection", "code-content";
 }
 .comment-item {
