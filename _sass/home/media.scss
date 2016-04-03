@@ -1,0 +1,15 @@
+@media screen and (max-width: 500px) {
+    body {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    main {
+        width: 100%;
+    }
+    aside, .code .arrow, .code.gutter-new:before, .code .code-content .code-line.gutter-new:before  {
+        display: none;
+    }
+    .code .code-content{
+        padding-left: 30px;
+    }
+}

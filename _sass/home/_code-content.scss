@@ -1,0 +1,75 @@
+.code-content {
+    padding-left: $code-indent;
+    white-space: nowrap;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 3px;
+        height: calc(100% - 6px);
+        width: $code-indent-line-width;
+        background: $code-indent-line-bg;
+    }
+    .code-line {
+        .code-attr {
+            color: $code-attr-col;
+            &:after {
+                content: ": ";
+                font-style: normal;
+                color: $code-attr-colon-col;
+                margin-left: 2.5px;
+            }
+        }
+        .code-value {
+            color: $code-value-col;
+            &:after {
+                content: ";";
+                color: $code-value-semicolon-col;
+                left: -10px;
+            }
+            &.value-number{
+                color: $code-value-number-col;
+            }
+            .value-number-percent {
+                color: $code-value-percent-col;
+            }
+            a {
+                color: $code-value-col;
+                &:hover {
+                    background: $light-white;
+                }
+            }
+        }
+        &.value-content {
+            &:after {
+                content: ";";
+                color: $code-value-semicolon-col;
+                left: -10px;
+            }
+            .code-value {
+                color: $code-value-content-col;
+                &:before,
+                &:after {
+                    content: '"';
+                    color: $code-value-content-col;
+                    left: 0;
+                }
+            }
+        }
+        &.gutter-new:before {
+            content: '';
+            width: $gutter-width;
+            height: 100%;
+            background: $gutter-bg;
+            position: absolute;
+            left: -($count-width + $code-indent + $code-padding-left) ;
+            top: 0;
+        }
+        h1{
+            font-size: inherit;
+            font-weight: inherit;
+            display: inline;
+            margin: 0;
+        }
+    }
+}

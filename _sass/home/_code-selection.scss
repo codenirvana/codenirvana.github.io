@@ -1,0 +1,18 @@
+.code-selection {
+    width: 100%;
+    float: left;
+    color: $selection-col;
+    white-space: nowrap;
+    &:before {
+        content: ".";
+        color: $selection-dot-col;
+    }
+    &:after {
+        content: "{";
+        color: $brace-col;
+        margin-left: 5px;
+    }
+    &.collapsed:after {
+        content: '{...';
+    }
+}

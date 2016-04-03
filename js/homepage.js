@@ -25,8 +25,8 @@ $(function() {
             color: "#404b53"
         });
     });
-    $("code").append('<span class="arrow"></span>');
-    $("code .arrow").click(function() {
+    $(".code").append('<span class="arrow"></span>');
+    $(".code .arrow").click(function() {
         $(this).parent().toggleClass('close');
         $(this).siblings('.code-selection').toggleClass('collapsed');
         $(".code-content", $(this).parent()).toggle();

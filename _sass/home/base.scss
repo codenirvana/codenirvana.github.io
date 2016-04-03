@@ -1,0 +1,96 @@
+@import "_mixin";
+*,
+*:after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+    font-family: inherit;
+    white-space: inherit;
+}
+body {
+    background: $base-bg;
+    font-family: $base-font;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+ ::-moz-selection {
+    background: $light-white;
+}
+ ::selection {
+    background: $light-white;
+}
+ ::-webkit-scrollbar {
+    display: none;
+}
+.clearfix {
+    clear: both;
+}
+main,
+aside,
+aside span,
+.code,
+.code-content,
+.code-content .code-line,
+.comment-item .comment {
+    float: left;
+    width: 100%;
+}
+aside {
+    width: $count-width;
+    font-size: $count-font-size;
+    span {
+        padding-left: $count-padding-left;
+        color: $count-col;
+        background: $count-bg;
+        cursor: default;
+        @include prefix(user-select, none, webkit moz ms);
+    }
+}
+main {
+    width: calc(100% - #{$count-width});
+    float: left;
+    padding-left: $code-padding-left;
+}
+.code {
+    margin-bottom: $base-line-height;
+    &:after {
+        content: "}";
+        width: 100%;
+        color: $brace-col;
+    }
+    &.close .arrow {
+        background: $arrow-close-bg;
+        transform: rotate(0deg);
+    }
+    &.gutter-new:before {
+        content: '';
+        width: $gutter-width;
+        height: calc(100% - 10px);
+        background: $gutter-bg;
+        position: absolute;
+        left: -($count-width + $code-padding-left);
+        top: 5px;
+    }
+    @import "arrow", "code-selection", "code-content";
+}
+.comment-item {
+    &:after {
+        content: "";
+    }
+    .arrow {
+        display: none;
+    }
+    .comment {
+        color: $comment-col;
+        white-space: nowrap;
+        &:before {
+            content: "//";
+            color: $comment-slash-col;
+        }
+    }
+}
