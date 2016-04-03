@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang='en'>
 
-<head>
-    <title>Udit Vasu</title>
+<head itemscope itemtype="http://schema.org/WebSite">
+    <title itemprop="name">Udit Vasu</title>
     <meta name="description" content="My personal website" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport' />
     <meta content='IE=edge' http-equiv='X-UA-Compatible' />
@@ -16,14 +16,14 @@
     <meta content='id_IN' property='og:locale:alternate' />
     <link href='/favicon.ico' rel='icon' type='image/x-icon' />
     <link rel="stylesheet" href="/css/homepage.css">
-    <link rel="canonical" href="https://uditvasu.net">
+    <link itemprop="url" rel="canonical" href="https://uditvasu.net">
 </head>
 
 <body>
     <main>
         <aside></aside>
-        <pre>
-            <code itemscope itemtype="http://schema.org/Person">
+        <pre itemscope itemtype="http://schema.org/Person">
+            <code>
                 <span class="code-selection">I-am</span>
                 <span class="code-content">
                     <span class="code-line value-content ">
@@ -51,16 +51,16 @@
                         </span>
                     </span>
                     <span class="code-line ">
-                        <span class="code-attr">IRC</span>
-                        <span class="code-value">#codenirvana</span>
+                        <span class="code-attr">IRC-nick</span>
+                        <span itemprop="alternateName" class="code-value">codenirvana</span>
                     </span>
                     <span class="code-line ">
                         <span class="code-attr">E-Mail</span>
                         <span class="code-value">
-                            <a itemprop="email" href="mailto:admin@codenirvana.in" target="_blank">admin@codenirvana.in</a>
+                            <a href="mailto:admin@codenirvana.in" target="_blank">admin@codenirvana.in</a>
                         </span>
                     </span>
-                    <link itemprop="sameAs" href="https://plus.google.com/+CodeNirvana" />
+                    <link itemprop="sameAs" rel="me" href="https://plus.google.com/+CodeNirvana" />
                     <link itemprop="sameAs" href="https://www.linkedin.com/in/uditvasu" />
                     <link itemprop="sameAs" href="http://twitter.com/uditdistro" />
                 </span>
@@ -68,7 +68,7 @@
             </code>
             <code>
                 <span class="code-selection">About</span>
-                <span itemscope itemtype="http://schema.org/PostalAddress" itemprop="address" class="code-content">
+                <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="code-content">
                     <span class="code-line ">
                         <span class="code-attr">Country</span>
                         <span itemprop="addressCountry" class="code-value">India</span>
@@ -287,7 +287,7 @@
                 <span class="arrow"></span>
             </code>
             <code class="comment-item">
-                <div class="comment">Thank you for reading</div>
+                <span class="comment">Thank you for reading</span>
                 <span class="arrow"></span>
             </code>
         </pre>
