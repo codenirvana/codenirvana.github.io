@@ -10,7 +10,8 @@ $(document).ready(function() {
 		var State = History.getState();
 		$.get(State.url, function(data){
 			document.title = data.match(/<title>(.*?)<\/title>/)[1];
-			$('.content').html($(data).find('.content'));
+			$('.content').replaceWith($(data).find('.content'));
+
 			ga('create', 'UA-40024831-10', 'auto');
 		    ga('send', 'pageview');
 		});
