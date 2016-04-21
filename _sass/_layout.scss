@@ -27,6 +27,7 @@
     nav{
         list-style: none;
         font-size: 1.5em;
+        margin-top: 20px;
         li{
             a{
                 color: #404040;
@@ -44,6 +45,10 @@
     box-sizing: border-box;
 }
 
-.content{
-
+.content {
+    .post-list {
+        li {
+            list-style: none;   
+        }
+    }
 }
