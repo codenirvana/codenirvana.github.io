@@ -94,6 +94,9 @@ main {
     .comment {
         color: $comment-col;
         white-space: nowrap;
+        a {
+            color: #cd3f45;
+        }
         &:before {
             content: "//";
             color: $comment-slash-col;
