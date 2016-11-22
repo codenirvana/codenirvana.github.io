@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Happy New Year!"
+title:  "Hello World"
 categories: general
-permalink: /blog/happy-new-year
+permalink: /blog/hello-world
 ---
-Happy New Year!
+Hello World!
