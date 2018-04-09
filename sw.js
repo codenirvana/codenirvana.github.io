@@ -1,29 +1,50 @@
-importScripts('/js/cache-polyfill.js');
+const PRECACHE = 'precache-v1';
+const RUNTIME = 'runtime';
 
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open('uditvasu').then(function(cache) {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        '/css/home.css'
-      ]).then(function() {
-        return self.skipWaiting();
-      });
-    })
+const PRECACHE_URLS = [
+  'index.html',
+  './', // Alias for index.html
+  '/css/home.css',
+  '/js/homepage.js'
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(PRECACHE)
+      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(self.skipWaiting())
   );
 });
 
-self.addEventListener('activate', function(event) {
-  event.waitUntil(self.clients.claim());
+self.addEventListener('activate', event => {
+  const currentCaches = [PRECACHE, RUNTIME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
+    }).then(cachesToDelete => {
+      return Promise.all(cachesToDelete.map(cacheToDelete => {
+        return caches.delete(cacheToDelete);
+      }));
+    }).then(() => self.clients.claim())
+  );
 });
 
-self.addEventListener('fetch', function(event) {
-  console.log(event.request.url);
+self.addEventListener('fetch', event => {
+  if (event.request.url.startsWith(self.location.origin)) {
+    event.respondWith(
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
 
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request);
-    })
-  );
+        return caches.open(RUNTIME).then(cache => {
+          return fetch(event.request).then(response => {
+            return cache.put(event.request, response.clone()).then(() => {
+              return response;
+            });
+          });
+        });
+      })
+    );
+  }
 });
