@@ -1,45 +1,50 @@
-const PRECACHE = 'precache-v1';
-const RUNTIME = 'runtime';
+var PRECACHE = 'precache-v3';
+var RUNTIME = 'runtime';
 
-const PRECACHE_URLS = [
-  'index.html',
-  './', // Alias for index.html
+var PRECACHE_URLS = [
+  '/index.html',
   '/css/home.css',
   '/js/homepage.js'
 ];
 
-self.addEventListener('install', event => {
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(PRECACHE)
-      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(function(cache) {
+        return cache.addAll(PRECACHE_URLS);
+      })
       .then(self.skipWaiting())
   );
 });
 
-self.addEventListener('activate', event => {
-  const currentCaches = [PRECACHE, RUNTIME];
+self.addEventListener('activate', function(event) {
+  var currentCaches = [PRECACHE, RUNTIME];
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-    }).then(cachesToDelete => {
-      return Promise.all(cachesToDelete.map(cacheToDelete => {
+    caches.keys().then( function(cacheNames) {
+      return cacheNames.filter(function(cacheName) {
+        return !currentCaches.includes(cacheName);
+      });
+    }).then(function(cachesToDelete) {
+      return Promise.all(cachesToDelete.map(function(cacheToDelete) {
         return caches.delete(cacheToDelete);
       }));
-    }).then(() => self.clients.claim())
+    }).then(function() {
+      return self.clients.claim();
+    })
   );
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', function(event) {
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
+      caches.match(event.request).then(function(cachedResponse) {
         if (cachedResponse) {
           return cachedResponse;
         }
 
-        return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
-            return cache.put(event.request, response.clone()).then(() => {
+        return caches.open(RUNTIME).then(function(cache) {
+          return fetch(event.request).then(function(response) {
+            return cache.put(event.request, response.clone()).then(function() {
               return response;
             });
           });

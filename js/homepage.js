@@ -1,49 +1,45 @@
-$(function() {
+(function() {
+  var lineCount;
+  var aside = document.getElementsByTagName("aside")[0];
+  var main = document.getElementsByTagName("main")[0];
 
-    var lineCount;
-
-    function lineCountWrite() {
-        $("aside").html("");
-        lineCount = $("main").height() / 25;
-        for (var i = 1; i <= lineCount; i++) {
-            $("aside").append("<span>" + i + "</span>")
-        }
+  function lineCountWrite() {
+    aside.innerHTML = "";
+    lineCount = main.clientHeight / 25;
+    for (var i = 1; i <= lineCount; i++) {
+      aside.insertAdjacentHTML("beforeend", "<span>" + i + "</span>");
     }
+  }
 
-    lineCountWrite();
-    $(window).hover(function(e) {
-        var pY = e.pageY;
-        for (var c = 1; c <= lineCount; c++) {
-            if (pY > $("aside span:nth-child(" + c + ")").offset().top && pY < $("aside span:nth-child(" + c + ")").offset().top + 25) {
-                $("aside span:nth-child(" + c + ")").css({
-                    color: "#55b5db"
-                });
-            }
-        }
-    }, function() {
-        $("aside span").css({
-            color: "#404b53"
-        });
+  lineCountWrite();
+
+  var codes = document.querySelectorAll(".code");
+  codes.forEach(function(code) {
+    code.insertAdjacentHTML("beforeend", "<span class='arrow'></span>");
+  });
+
+  var codeArrows = document.querySelectorAll(".code .arrow");
+  codeArrows.forEach(function(arrow) {
+    arrow.onclick = function() {
+      var parent = this.parentNode;
+      var selection = parent.getElementsByClassName('code-selection')[0];
+      var content= parent.getElementsByClassName('code-content')[0];
+      parent.classList.toggle('close');
+      selection.classList.toggle('collapsed');
+      content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      lineCountWrite();
+    };
+  });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', {
+      scope: '/'
+    })
+    .then(function(registration) {
+        console.log("Service Worker Registered");
     });
-    $(".code").append('<span class="arrow"></span>');
-    $(".code .arrow").click(function() {
-        $(this).parent().toggleClass('close');
-        $(this).siblings('.code-selection').toggleClass('collapsed');
-        $(".code-content", $(this).parent()).toggle();
-        lineCountWrite();
+    navigator.serviceWorker.ready.then(function(registration) {
+        console.log("Service Worker Ready");
     });
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', {
-                scope: '/'
-            })
-            .then(function(registration) {
-                console.log("Service Worker Registered");
-            });
-
-        navigator.serviceWorker.ready.then(function(registration) {
-            console.log("Service Worker Ready");
-        });
-    }
-
-});
+  }
+})();
